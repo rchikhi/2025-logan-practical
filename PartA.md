@@ -33,12 +33,14 @@ To get the SRA file, look at the `SRA archive data` section and download any of 
 
 ![image](https://github.com/user-attachments/assets/0567c726-37f1-41bb-ade7-64c59df6eddc)
 
-You may download using the AWS CLI by typing:
+You may download using the first link by typing:
 
     wget https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR2584403/SRR2584403
     mv SRR2584403 SRR2584403.sra
 
-Then, what you have is a SRA file that needs to be converted to FASTQ. To do that, install the SRA toolkit https://github.com/ncbi/sra-tools/wiki/02.-Installing-SRA-Toolkit
+(Challenge: see if you can download any of the other links instead?)
+
+Then once you have downloaded one of the links, what you have is a file in the SRA (or SRAlite) format that needs to be converted to FASTQ. To do that, install the SRA toolkit https://github.com/ncbi/sra-tools/wiki/02.-Installing-SRA-Toolkit
 and type:
 
     fasterq-dump SRR2584403.sra
@@ -92,7 +94,7 @@ Should display:
 
 Above we downloaded a small bacterial assembly. But, when it comes to bacterial isolates, it is actually not recommended to use Logan. A better resource is AllTheBacteria: https://allthebacteria.readthedocs.io/en/latest/
 
-Because it has bacterial assemblies are of higher contiguity. Though, note that AllTheBacteria uses SRA sample identifiers (SAMxxxxxx), not run identifiers (SRRxxxxxx). Not to worry, you can find the sample identifier in the SRA page: https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR2584403&display=metadata
+Because it has bacterial assemblies that are of higher contiguity. Though, note that AllTheBacteria uses SRA sample identifiers (SAMxxxxxx), not run identifiers (SRRxxxxxx). Not to worry, you can find the sample identifier in the SRA page: https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR2584403&display=metadata
 
 ![image](https://github.com/user-attachments/assets/8fbecc76-2b98-4e63-8cb1-68524cf9edbb)
 
@@ -115,9 +117,14 @@ Notice how the N50 is greater, though the total lengths are about the same.
 
 ### 2. Finding SRA datasets
 
-Now, downloading a single SRA accession is neat, but what about many many runs? Let us download 100 E.coli assemblies
+Now, downloading a single SRA accession is neat, but what about many many runs? Let us download 100 E.coli assemblies. But how to find the corresponding runs?
 
+One way is to browse the SRA website, search for "ecoli", and painstakingly copy the run names of the 100 first search results. That would take too much time.
 
-* To download bacterial isolates assemblies, it is actually not recommended to use Logan. A better resource is AllTheBacteria, because assemblies are of higher contiguity. Though, note that AllTheBacteria uses SRA sample identifiers (SAMxxxxxx), not run identifiers (SRRxxxxxx),  https://allthebacteria.readthedocs.io/en/latest/
+A more clever approach is to export a list of search results:
+
+![image](https://github.com/user-attachments/assets/b62787f6-1818-4a7b-b751-fca523b70181)
+
+And then parse that CSV to get just the accession names.
 
 A more advanced version of this section is available as an independent Logan tutorial: https://github.com/IndexThePlanet/Logan/blob/main/SRA_list.md
