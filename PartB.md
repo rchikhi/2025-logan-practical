@@ -68,23 +68,25 @@ TATGTCCTGTAACCATGAATTAAACTGCACCATATGATTGACTGATGCGGATGAACAGTATTGATCAAGTCCAGCTACAA
 
 Once Logan Search has finished searching (takes about 5 minutes), browse through the results webpage, and take a look at the map and plots!
 
-* What do you think is the organism?
-* Where is it mostly found?
-* Is the sequence specific to that organism?
+**Q1.** What do you think is the organism?
+
+**Q2.** Where is it mostly found?
+
+**Q3.** Is the sequence specific to that organism?
 
 ## 4 . Retrieve Your Results
 
 The confirmation e‑mail contains **two links**:
 
-| Link suffix | Purpose |
+| Link URL  | Purpose |
 |-------------|---------|
-| `/viz.html` | Interactive *kmviz* dashboard (taxonomy barplot, hit table, coverage slider). |
-| `.zip` | Raw output: `hits.tsv`, `metadata.tsv`, static plots, your query. |
+| `/dashboard` | Raw output: `.tsv`, `session.json`, your query. |
+| `/api/download` | Interactive *kmviz* dashboard (taxonomy barplot, hit table, coverage slider). |
 
 ```bash
 # Unzip & extract the accession column
 unzip kmviz-<session>.zip
-cut -f1 hits.tsv | tail -n +2 > hits.acc   # skip header
+cut -f1 <seqname>.tsv | tail -n +2 > hits.acc   # skip header
 ```
 
 ---
@@ -103,18 +105,8 @@ You now have contigs ready for alignment, variant calling, or pangenome analysis
 
 ---
 
-## 6 . Power‑User Tricks
 
-| Goal | Trick |
-|------|-------|
-| Faster search | Trim query to 400–800 bp of the most specific region. |
-| Skip isolates | In **Groups**, untick *Genomic* and *Single‑cell*. |
-| Filter low‑coverage hits | `awk '$3 < 0.9' hits.tsv` (assuming coverage in column 3). |
-| Random subset | `shuf hits.acc | head -n 50 > subset.acc` |
-
----
-
-## 7 . Troubleshooting
+## 6 . Troubleshooting
 
 | Symptom | Likely cause | Fix |
 |---------|--------------|-----|
@@ -128,8 +120,8 @@ You now have contigs ready for alignment, variant calling, or pangenome analysis
 ## 8 . Next Steps
 
 * **Variant scanning:** align all retrieved contigs to a reference.  
-* **Phylogenetics:** build a tree from the matched runs.  
-* **Epidemiology:** combine `metadata.tsv` with sampling dates/locations.  
+* **Phylogenetics:** build a tree from sequences extracted from the matched runs. 
+* **Epidemiology:** combine `.tsv` Logan Search results with sampling dates/locations.  
 * **Iterative discovery:** pull novel haplotypes → search again → expand the network.
 
 ---
