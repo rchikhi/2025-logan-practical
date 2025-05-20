@@ -67,6 +67,8 @@ You may wonder if there was an easier way to get FASTQ files from SRA directly, 
 
 It will find the location of the SRA file automatically, download it, convert it to FASTQ, and delete it, so that you end up with only the two FASTQ files. We did all the steps above to see what happened behind the scenes.
 
+Also, if you are bothered with `fasterq-dump` not showing any output until it has finished, you may add the `--progress` command line argument.
+
 
 ### 1. Accessing SRA data through Logan
 
@@ -153,20 +155,20 @@ Now you have a truly random sample of E.coli accessions from the SRA. You could 
     echo $first_acc
     fasterq-dump $first_acc
 
-and repeat for all the other accessions in the file, e.g. with:
+and repeat for all the other accessions in the file, e.g. with (but do not run that command):
 
     for acc in $(cat ecoli.acc.txt); do echo $acc; fasterq-dump $acc; done
 
-But doing this is outside the scope of this tutorial, so we won't do that.
+But doing this is outside the scope of this tutorial, so we won't do that. 
 
 Instead, to download all the Logan assemblies for this list of accessions, type:
 
     for acc in $(cat ecoli.acc.txt); do echo $acc; aws s3 cp s3://logan-pub/c/$acc/$acc.contigs.fa.zst .; done
 
-You do not need to wait for this command to complete, you can interrupt it at any time with Control+C. 
+You do not need to wait for this command to complete, because, how long do you think it will take? Around a few seconds per accession, and we have 100 accessions, so it will take a dozen minutes or so. I suggest that you interrupt it with Control+C. 
 
 The point was to show how to download many accessions. 
 
-You may instead of doing a `for` loop, use the `parallel` program (https://ftp.gnu.org/gnu/parallel/). It will download in parallel instead of one after the other.
+You may instead of doing a `for` loop, use the `parallel` program (https://ftp.gnu.org/gnu/parallel/). It will download in parallel instead of one after the other. You may add the command line argument `-j 4` to limit it to 4 threads at the same time (by default it uses the number of CPU cores).
 
-Try it, and stop it with Control+C.
+Try it, and stop it too with Control+C.
