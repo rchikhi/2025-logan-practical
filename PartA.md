@@ -41,9 +41,9 @@ You may download using the AWS CLI by typing:
 Then, what you have is a SRA file that needs to be converted to FASTQ. To do that, install the SRA toolkit https://github.com/ncbi/sra-tools/wiki/02.-Installing-SRA-Toolkit
 and type:
 
-   fasterq-dump SRR2584403.sra
+    fasterq-dump SRR2584403.sra
 
-If all went well, you should see files `SRR2584403_1.fastq` and `SRR2584403_2.fastq` in your folder, around 700 MB each.
+If all went well, you should see files `SRR2584403_1.fastq` and `SRR2584403_2.fastq` in your folder (these are paired-end reads), around 700 MB each.
 
 You may attempt to download the data in the `Original format`, at location:
 
@@ -51,6 +51,29 @@ You may attempt to download the data in the `Original format`, at location:
 
 by typing:
 
-	  aws s3 cp s3://sra-pub-src-8/SRR2584403/Ara-1_500gen_762B_R1.fastq.gz .
+    aws s3 cp s3://sra-pub-src-8/SRR2584403/Ara-1_500gen_762B_R1.fastq.gz .
 
-But you'll get an error 403: Forbidden. Turns out the way to access this data is through `Cloud Data Delivery` which requires NCBI to retrieve it from cold storage, so it is not immediate.
+Although this is a S3 URL, try to download it, you'll likely get an error 403: Forbidden. Turns out the way to access this data is through `Cloud Data Delivery` which requires NCBI to retrieve it from cold storage, so it is not immediate.
+
+Now that you have `fastq` files, you may do any processing you like on those reads, e.g. assemble them or align them. But we won't do that in this tutorial, we will instead show you how to access
+this same accession using Logan instead.
+
+### 1. Accessing SRA data through Logan
+
+[Logan](https://github.com/IndexThePlanet/Logan/) has assembled all SRA data until late 2023, so this run `SRR2584403` is part of Logan. You may download the Logan assembly using this command:
+
+    aws s3 cp s3://logan-pub/c/SRR2584403/SRR2584403.contigs.fa.zst .
+
+Now you have a FASTA file of the assembly of that run, compressed in Zstandard format.
+
+See if you have the `zstd` and `zstdcat` commands installed on your system by just typing:
+
+    zstdcat
+
+If this doesn't work, install Zstd here: https://github.com/facebook/zstd/releases
+
+Then extract the assembly by typing:
+
+    zstd -d SRR2584403.contigs.fa
+
+Now you have download your (first?) Logan assembly!
