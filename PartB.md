@@ -64,10 +64,13 @@ TATGTCCTGTAACCATGAATTAAACTGCACCATATGATTGACTGATGCGGATGAACAGTATTGATCAAGTCCAGCTACAA
 
 ---
 
-
 ## 3 . Look At The Results
 
 Once Logan Search has finished searching (takes about 5 minutes), browse through the results webpage, and take a look at the map and plots!
+
+* What do you think is the organism?
+* Where is it mostly found?
+* Is the sequence specific to that organism?
 
 ## 4 . Retrieve Your Results
 
