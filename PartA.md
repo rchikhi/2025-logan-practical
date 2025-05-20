@@ -26,7 +26,6 @@ You may see some more information about the run (SRR2584403) by clicking on it. 
 
 ![image](https://github.com/user-attachments/assets/d9e6c218-cb9b-4cf3-88e7-dc39a7f83cff)
 
-
 Now, how to download a FASTQ file? It is not immediate. The way to get a FASTQ file is to first get a SRA file and then convert that SRA file to FASTQ.
 
 To get the SRA file, look at the `SRA archive data` section and download any of the files.
@@ -38,9 +37,9 @@ You may download using the first link by typing:
     wget https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR2584403/SRR2584403
     mv SRR2584403 SRR2584403.sra
 
-(Challenge: see if you can download any of the other links instead?)
+But, do not do this, see instead if you can download any of the other links.
 
-Then once you have downloaded one of the links, what you have is a file in the SRA (or SRAlite) format that needs to be converted to FASTQ. To do that, install the SRA toolkit https://github.com/ncbi/sra-tools/wiki/02.-Installing-SRA-Toolkit
+Then once you have done the download, what you have is a file in the SRA (or SRAlite) format that needs to be converted to FASTQ. To do that, install the SRA toolkit https://github.com/ncbi/sra-tools/wiki/02.-Installing-SRA-Toolkit
 and type:
 
     fasterq-dump SRR2584403.sra
