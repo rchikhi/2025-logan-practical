@@ -1,6 +1,6 @@
 # 2025 hands-on practical on accessing Logan data
 
-This is a practical session where participants will perform themselves a bioinformatics analysis using Logan data. The goal of the session is to get first-hand experience in knowing where Logan data is, downloading is, and searching it. We will also venture in more general considerations on genome assembly graphs, such as the ones provided in Logan data.
+This is a practical session where participants will perform themselves sequencing data analysis using SRA and Logan. The goal of the session is to get first-hand experience in accessing SRA data, knowing where Logan data is, downloading it, and searching it. We will also venture in more general considerations on genome assembly graphs, such as the ones provided with Logan.
 
 [Part A: Accessing Logan data ](https://github.com/rchikhi/2025-logan-practical/blob/main/PartA.md)
 
