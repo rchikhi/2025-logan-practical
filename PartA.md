@@ -18,7 +18,7 @@ The Short Read Archive is the central repository of all public sequencing data. 
 
 ![image](https://github.com/user-attachments/assets/a0a73965-5764-4dff-acba-71645dde48fc)
 
-We will focus on E. coli long-term evolution run *SRR2584403*, because it is small enough to test.
+We will focus on a E. coli long-term evolution run, identifier *SRR2584403*, because it is small enough to test.
 
 ![image](https://github.com/user-attachments/assets/a4e931d7-35f5-420c-b2b4-1ef138ca9900)
 
@@ -172,3 +172,24 @@ The point was to show how to download many accessions.
 You may instead of doing a `for` loop, use the `parallel` program (https://ftp.gnu.org/gnu/parallel/). It will download in parallel instead of one after the other. You may add the command line argument `-j 4` to limit it to 4 threads at the same time (by default it uses the number of CPU cores).
 
 Try it, and stop it too with Control+C.
+
+
+### 4. Recap
+
+What have we seen?
+
+
+| 📚 Step                         | 📝 What you did                                                             |
+|  ------------------------------- | --------------------------------------------------------------------------- |
+| 🛠️ **AWS CLI check**            | `aws help` to confirm CLI, install if missing                               | 
+| 🔍 **SRA deep-dive**            | Visited SRA page → located run **SRR2584403** → peeked at “Data access” tab |
+| ⬇️ **Grab raw SRA file**        | `wget`/`aws s3 cp` (learned about cold storage 403)                         |
+| 🔄 **Convert to FASTQ**         | `fasterq-dump SRR2584403.sra` (or run without pre-download)                 | 
+| 🛰️ **Logan data**              | `aws s3 cp s3://logan-pub/...contigs.fa.zst` Logan ships assembled data      | 
+| 🎈 **Decompress + QC**          | `zstd -d` ➜ `seqkit stats -a`                                               | 
+| 🦠 **Better for bacteria?**     | Checked **AllTheBacteria**, higher contiguity                               |
+| 🔎 **Harvest 100 E. coli runs** | Export CSV from SRA → `grep` / `shuf` → `ecoli.acc.txt`                      | 
+| 📥 **Mass download**            | `for acc … aws s3 cp …` or `parallel -j 4`                                  |
+
+
+Now, let's move on to [Part B](PartB.md).
