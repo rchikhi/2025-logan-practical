@@ -26,7 +26,9 @@ You may see some more information about the run (SRR2584403) by clicking on it. 
 
 ![image](https://github.com/user-attachments/assets/d9e6c218-cb9b-4cf3-88e7-dc39a7f83cff)
 
-Now, how to download a FASTQ file? It is not immediate. The way to get a FASTQ file is to first get a SRA file and then convert that SRA file to FASTQ.
+Now, how to download a FASTQ file? It is not immediate. One way to get a FASTQ file is to first get a SRA file and then convert that SRA file to FASTQ.
+
+There is an easier way, but for now we will go this route, because it will teach us important things about how to get data from the cloud.
 
 To get the SRA file, look at the `SRA archive data` section and download any of the files.
 
@@ -58,6 +60,13 @@ Although this is a S3 URL, try to download it, you'll likely get an error 403: F
 
 Now that you have `fastq` files, you may do any processing you like on those reads, e.g. assemble them or align them. But we won't do that in this tutorial, we will instead show you how to access
 this same accession using Logan instead.
+
+You may wonder if there was an easier way to get FASTQ files from SRA directly, as alluded above. There is. The `fasterq-dump` program also takes a run identifier as argument, so that if you type:
+
+    fasterq-dump SRR2584403
+
+It will find the location of the SRA file automatically, download it, convert it to FASTQ, and delete it, so that you end up with only the two FASTQ files. We did all the steps above to see what happened behind the scenes.
+
 
 ### 1. Accessing SRA data through Logan
 
