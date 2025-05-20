@@ -77,3 +77,47 @@ Then extract the assembly by typing:
     zstd -d SRR2584403.contigs.fa
 
 Now you have download your (first?) Logan assembly!
+
+You may quickly check some basic statistics about the assembly using Seqkit: https://github.com/shenwei356/seqkit/releases
+
+    seqkit stats SRR2584403.contigs.fa -a
+
+Should display:
+
+    file  format  type  num_seqs    sum_len  min_len  avg_len  max_len  Q1  Q2     Q3  sum_gap     N50  Q20(%)  Q30(%)  GC(%)
+    -     FASTA   DNA      1,297  4,556,063       31  3,512.8   81,999  32  57  1,015        0  22,171       0       0  50.72
+
+
+### 2. Quick note about bacterial data
+
+Above we downloaded a small bacterial assembly. But, when it comes to bacterial isolates, it is actually not recommended to use Logan. A better resource is AllTheBacteria: https://allthebacteria.readthedocs.io/en/latest/
+
+Because it has bacterial assemblies are of higher contiguity. Though, note that AllTheBacteria uses SRA sample identifiers (SAMxxxxxx), not run identifiers (SRRxxxxxx). Not to worry, you can find the sample identifier in the SRA page: https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR2584403&display=metadata
+
+![image](https://github.com/user-attachments/assets/8fbecc76-2b98-4e63-8cb1-68524cf9edbb)
+
+Then you can download the AllTheBacteria assembly like this:
+
+    aws s3 cp --no-sign-request s3://allthebacteria-assemblies/SAMN04096045.fa.gz .
+    gunzip SAMN04096045.fa.gz
+
+And notice that it has improved assembly stats:
+
+    seqkit stats -a  SAMN04096045.fa
+
+gives:
+
+    file             format  type  num_seqs    sum_len  min_len   avg_len  max_len     Q1      Q2      Q3  sum_gap      N50  Q20(%)  Q30(%)  GC(%)
+    SAMN04096045.fa  FASTA   DNA        118  4,544,381      202  38,511.7  348,273  1,034  14,303  46,440        0  110,753       0       0  50.72
+
+
+Notice how the N50 is greater, though the total lengths are about the same.
+
+### 2. Finding SRA datasets
+
+Now, downloading a single SRA accession is neat, but what about many many runs? Let us download 100 E.coli assemblies
+
+
+* To download bacterial isolates assemblies, it is actually not recommended to use Logan. A better resource is AllTheBacteria, because assemblies are of higher contiguity. Though, note that AllTheBacteria uses SRA sample identifiers (SAMxxxxxx), not run identifiers (SRRxxxxxx),  https://allthebacteria.readthedocs.io/en/latest/
+
+A more advanced version of this section is available as an independent Logan tutorial: https://github.com/IndexThePlanet/Logan/blob/main/SRA_list.md
