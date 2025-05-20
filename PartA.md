@@ -156,4 +156,8 @@ Instead, to download all the Logan assemblies for this list of accessions, type:
 
 You do not need to wait for this command to complete, you can interrupt it at any time with Control+C. 
 
-The point was to show how to download many accessions. You may instead of doing a `for` loop, use the `parallel` program (https://ftp.gnu.org/gnu/parallel/). It will download in parallel instead of one after the other.
+The point was to show how to download many accessions. 
+
+You may instead of doing a `for` loop, use the `parallel` program (https://ftp.gnu.org/gnu/parallel/). It will download in parallel instead of one after the other.
+
+Try it, and stop it with Control+C.
