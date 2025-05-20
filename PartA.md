@@ -126,8 +126,8 @@ A more clever approach is to export a list of search results:
 
 And then parse that CSV to get just the accession names:
 
-   head SraAccList.csv # to inspect
-   grep -v "sra" SraAccList.csv | head -n 100 > ecoli.acc.txt
+    head SraAccList.csv # to inspect
+    grep -v "sra" SraAccList.csv | head -n 100 > ecoli.acc.txt
 
 Now you have in `ecoli.acc.txt` a list of 100 ecoli accessions. Admittedly, they aren't in a random order, so it may not reflect a broad diversity of E. coli genomes.
 This can be mitigated by typing instead:
@@ -140,19 +140,19 @@ A more advanced version of this section is available as an independent Logan tut
 
 Now you have a truly random sample of E.coli accessions from the SRA. You could download them one by one:
 
-   first_acc=$(head -n 1 ecoli.acc.txt)
-   echo $first_acc
-   fasterq-dump $first_acc
+    first_acc=$(head -n 1 ecoli.acc.txt)
+    echo $first_acc
+    fasterq-dump $first_acc
 
 and repeat for all the other accessions in the file, e.g. with:
 
-   for acc in $(cat ecoli.acc.txt); do echo $acc; fasterq-dump $acc; done
+    for acc in $(cat ecoli.acc.txt); do echo $acc; fasterq-dump $acc; done
 
 But doing this is outside the scope of this tutorial, so we won't do that.
 
 Instead, to download all the Logan assemblies for this list of accessions, type:
 
-   for acc in $(cat ecoli.acc.txt); do echo $acc; aws s3 cp s3://logan-pub/c/$acc/$acc.contigs.fa.zst .; done
+    for acc in $(cat ecoli.acc.txt); do echo $acc; aws s3 cp s3://logan-pub/c/$acc/$acc.contigs.fa.zst .; done
 
 You do not need to wait for this command to complete, you can interrupt it at any time with Control+C. 
 
