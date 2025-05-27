@@ -54,7 +54,7 @@ TATGTCCTGTAACCATGAATTAAACTGCACCATATGATTGACTGATGCGGATGAACAGTATTGATCAAGTCCAGCTACAA
 | Setting | What it does |
 |---------|--------------|
 | **Groups** | Research search to a subset of SRA (*Genomic*, *Single‑cell*, etc). By default, use *all* |
-| **Minimum coverage** | Fraction of 31‑mers that must match (default = 0.5). Raising it reduces false positives but increases false negatives. |
+| **Minimum coverage** | Fraction of 31‑mers that must match (default = 0.5). Raising it reduces sensitivity but increases specificity. |
 | **Email** | Necessary, and results links are sent there. |
 
 > **Service limits**  
