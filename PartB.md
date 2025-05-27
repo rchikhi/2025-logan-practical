@@ -80,13 +80,15 @@ Key columns are:
 
 The next tab, "Map", shows the location of SRA samples according to ther geolocalization metadata provided by the data submitters.
 
-![image](https://github.com/user-attachments/assets/7f5c1626-1d30-49b5-b2de-28e4f2523245)
+![image](https://github.com/user-attachments/assets/08e56e6f-8b4c-4fdc-9968-8a719d045366)
+
 
 The color of the circles correspond to `kmer_coverage`, and the size of the circle is proportional to the number of SRA samples at that location.
 
 The next tab, "Plots", shows various plots for the metadata!
 
-![image](https://github.com/user-attachments/assets/9789107d-b5a9-471e-bbf6-2b3fb6022860)
+![image](https://github.com/user-attachments/assets/056088e6-4705-4b09-a826-6b8124fe7b90)
+
 
 Be sure to check the bottom-right button:
 
