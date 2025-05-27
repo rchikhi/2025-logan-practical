@@ -106,9 +106,9 @@ To see many other plot templates, i.e. for sequencing centers, tissues.
 
 Logan Search main results table does not return alignments, instead, it just returns "coverage" of each accession for your query sequence. Think of it as "how likely is the sequence present in that accession", or, "how similar is the query sequence to the sequence present in the accession", although both statements are not strictly true.
 
-You may verify that the sequence is indeed present by manually asking Logan Search to run an alignment of the query sequence to the unitigs or contigs of a particular accession. To do this, click on the "Contigs/Unitigs Search (BETA)" tab:
+You may verify that the sequence is indeed present by manually asking Logan Search to run an alignment of the query sequence to the unitigs or contigs of a particular accession. To do this, click on the "BLAST-like alignment" tab:
 
-![image](https://github.com/user-attachments/assets/594113a4-e135-4a4c-bd26-0bf53622a53e)
+![image](https://github.com/user-attachments/assets/64ff2f9d-d5b8-4582-b91e-ac7260374df0)
 
 Then select accession `SRR12518690`, select contigs, and press search.
 
