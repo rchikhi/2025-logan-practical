@@ -68,13 +68,57 @@ TATGTCCTGTAACCATGAATTAAACTGCACCATATGATTGACTGATGCGGATGAACAGTATTGATCAAGTCCAGCTACAA
 
 Once Logan Search has finished searching (takes about 5 minutes), browse through the results webpage, and take a look at the map and plots!
 
+The first tab, "Table", show the list of SRA accessions where the query sequence is present. 
+
+![image](https://github.com/user-attachments/assets/e4f6d588-1e7c-4580-ad4a-3581c1839fc6)
+
+Key columns are:
+
+* `ID`: SRA accession 
+* `kmer_coverage`: how many k-mers of the query are also present in the accession
+*  all the other columns are from the SRA metadata
+
+The next tab, "Map", shows the location of SRA samples according to ther geolocalization metadata provided by the data submitters.
+
+![image](https://github.com/user-attachments/assets/7f5c1626-1d30-49b5-b2de-28e4f2523245)
+
+The color of the circles correspond to `kmer_coverage`, and the size of the circle is proportional to the number of SRA samples at that location.
+
+The next tab, "Plots", shows various plots for the metadata!
+
+![image](https://github.com/user-attachments/assets/9789107d-b5a9-471e-bbf6-2b3fb6022860)
+
+Be sure to check the bottom-right button:
+
+![image](https://github.com/user-attachments/assets/16a3b4d5-0851-4050-a41c-a1da77933434)
+
+To see many other plot templates, i.e. for sequencing centers, tissues.
+
 **Q1.** What do you think is the organism?
 
 **Q2.** Where is it mostly found?
 
 **Q3.** Is the sequence specific to that organism?
 
-## 4 . Retrieve Your Results
+
+
+## 4. Get a BLAST-like alignment
+
+Logan Search main results table does not return alignments, instead, it just returns "coverage" of each accession for your query sequence. Think of it as "how likely is the sequence present in that accession", or, "how similar is the query sequence to the sequence present in the accession", although both statements are not strictly true.
+
+You may verify that the sequence is indeed present by manually asking Logan Search to run an alignment of the query sequence to the unitigs or contigs of a particular accession. To do this, click on the "Contigs/Unitigs Search (BETA)" tab:
+
+![image](https://github.com/user-attachments/assets/594113a4-e135-4a4c-bd26-0bf53622a53e)
+
+Then select accession `SRR12518690`, select contigs, and press search.
+
+**Q4.** How many search results?
+
+**Q5.** Is the query sequence fully contained in the contig?
+
+**Q6.** Is the query sequence exactly present in the contigs, or are there mismatches?
+
+## 5 . Retrieve Your Results
 
 The confirmation e‑mail contains **two links**:
 
@@ -91,7 +135,7 @@ cut -f1 <seqname>.tsv | tail -n +2 > hits.acc   # skip header
 
 ---
 
-## 5 . Download Assemblies for the Hits
+## 6 . Download Assemblies for the Hits
 
 ```bash
 # Fetch the top 25 hits using 4 parallel threads
@@ -106,7 +150,7 @@ You now have contigs ready for alignment, variant calling, or pangenome analysis
 ---
 
 
-## 6 . Troubleshooting
+## 7 . Troubleshooting
 
 | Symptom | Likely cause | Fix |
 |---------|--------------|-----|
