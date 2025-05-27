@@ -118,6 +118,8 @@ Then select accession `SRR12518690`, select contigs, and press search.
 
 **Q6.** Is the query sequence exactly present in the contigs, or are there mismatches?
 
+In some cases we're not so lucky to have the whole query sequence present in a single contig. Try for example to align to `SRR26176344`, *unitigs* this time.
+
 ## 5 . Retrieve Your Results
 
 The confirmation e‑mail contains **two links**:
