@@ -178,3 +178,7 @@ You now have contigs ready for alignment, variant calling, or pangenome analysis
 4. Script‑fetch assemblies, and dive into analysis.
 
 You’ve just queried **every** public sequencing run on Earth in minutes—welcome to planetary‑scale genomics!
+
+
+
+Now, let's move on to [Part C](PartC.md).
