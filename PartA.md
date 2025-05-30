@@ -12,6 +12,14 @@ To check if it is installed, run the command in a terminal.
 
 If it is not installed, you may download it from https://aws.amazon.com/cli/
 
+Or, one handy command line provided by tester Sam Ebdon, to install AWS CLI and everything else in the practical, is:
+
+    mamba install awscli seqkit minimap2 samtools blast bioconda::bandage_ng bioconda::sra-tools
+
+Other prerequisites are Linux tools `shuf` and `parallel`.
+
+---
+
 ### 1. Exploring an SRA accession
 
 The Short Read Archive is the central repository of all public sequencing data. Access it at this location: https://www.ncbi.nlm.nih.gov/sra
@@ -74,7 +82,7 @@ Also, if you are bothered with `fasterq-dump` not showing any output until it ha
 
 [Logan](https://github.com/IndexThePlanet/Logan/) has assembled all SRA data until late 2023, so this run `SRR2584403` is part of Logan. You may download the Logan assembly using this command:
 
-    aws s3 cp s3://logan-pub/c/SRR2584403/SRR2584403.contigs.fa.zst .
+    aws s3 cp s3://logan-pub/c/SRR2584403/SRR2584403.contigs.fa.zst . --no-sign-request
 
 Now you have a FASTA file of the assembly of that run, compressed in Zstandard format.
 
@@ -86,7 +94,7 @@ If this doesn't work, install Zstd here: https://github.com/facebook/zstd/releas
 
 Then extract the assembly by typing:
 
-    zstd -d SRR2584403.contigs.fa
+    zstd -d SRR2584403.contigs.fa.zst
 
 Now you have download your (first?) Logan assembly!
 
@@ -163,9 +171,11 @@ But doing this is outside the scope of this tutorial, so we won't do that.
 
 Instead, to download all the Logan assemblies for this list of accessions, type:
 
-    for acc in $(cat ecoli.acc.txt); do echo $acc; aws s3 cp s3://logan-pub/c/$acc/$acc.contigs.fa.zst .; done
+    for acc in $(cat ecoli.acc.txt); do echo $acc; aws s3 cp s3://logan-pub/c/$acc/$acc.contigs.fa.zst . --no-sign-request; done
 
 You do not need to wait for this command to complete, because, how long do you think it will take? Around a few seconds per accession, and we have 100 accessions, so it will take a dozen minutes or so. I suggest that you interrupt it with Control+C. 
+
+Also, you will notice that some accessions cannot be found. This is because Logan has currently assembled only data prior to 2024, so anything uploaded later is not there.
 
 The point was to show how to download many accessions. 
 
