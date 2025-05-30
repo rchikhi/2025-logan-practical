@@ -25,6 +25,8 @@ zstd -d SRR2584403.contigs.fa.zst
 # --- reconstruct the GFA (follows https://github.com/IndexThePlanet/Logan/blob/main/Unitigs.md#assembly-graph)
 wget https://raw.githubusercontent.com/GATB/bcalm/refs/heads/master/scripts/convertToGFA.py
 sed -i 's/>.*_/>/' SRR2584403.contigs.fa
+# for Mac, apparently the command is:
+# sed -i '' 's/>.*_/>/' SRR2584403.contigs.fa
 python convertToGFA.py SRR2584403.contigs.fa SRR2584403.contigs.gfa 31
 ```
 
@@ -111,7 +113,7 @@ Go there, export the sequence using the "Send to" button:
 then type:
 
 ```bash
-minimap2 -x asm5 -t4 SRR2584403.contigs.fa query.fa > query_vs_SRR2584403.paf
+minimap2 -x asm5 -t4 SRR2584403.contigs.fa sequence.fa > query_vs_SRR2584403.paf
 column -t query_vs_SRR2584403.paf | head
 ```
 
@@ -132,10 +134,11 @@ Which I find easier to read, thank to the CIGAR string and the NM flags, indicat
 ---
 ### 2.1 Run *Bandage BLAST*
 
-1. **Tools › BLAST sequence**.  
-2. Paste `query.fa` or load file.  
-3. Click **Run BLAST**
-4. Color the nodes by double clicking on Annotations - Blast hits:
+You will need to have BLAST installed on your system for this feature to be activated in Bandage.
+
+1. In BandageNG, go to: Create/view graph search -> Build Blast DB -> Load from fasta file -> Select sequence.fasta
+4. Click **Run BLAST search**
+5. Color the nodes by double clicking on Annotations - Blast hits:
 
 ![image](https://github.com/user-attachments/assets/68402ecb-4db6-4b7b-bcf8-3fd33dfd87b7)
  
