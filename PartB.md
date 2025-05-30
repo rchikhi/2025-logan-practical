@@ -134,7 +134,7 @@ The confirmation e‑mail contains **two links**:
 ```bash
 # Unzip & extract the accession column
 unzip kmviz-<session>.zip
-cut -f1 <seqname>.tsv | tail -n +2 > hits.acc   # skip header
+cut -f1 <queryname>.tsv | tail -n +2 > hits.acc   # skip header
 ```
 
 ---
@@ -144,7 +144,7 @@ cut -f1 <seqname>.tsv | tail -n +2 > hits.acc   # skip header
 ```bash
 # Fetch the top 25 hits using 4 parallel threads
 head -n 25 hits.acc | parallel -j4 '
-  aws s3 cp s3://logan-pub/c/{}/{}.contigs.fa.zst . &&
+  aws s3 cp s3://logan-pub/c/{}/{}.contigs.fa.zst . --no-sign-request &&
   zstd -d {}.contigs.fa.zst
 '
 ```
