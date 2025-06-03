@@ -9,7 +9,6 @@ We’ll combine three tools:
 |------|---------|---------|
 | [`minimap2`](https://github.com/lh3/minimap2) | Fast alignment of the query against contigs | `brew install minimap2` / `conda install -c bioconda minimap2` |
 | [`BandageNG`]([https://github.com/rrwick/Bandage](https://github.com/asl/BandageNG)) | Interactive GFA viewer with built‑in BLAST | Download binaries for Win / macOS / Linux |
-| `zstd`, `samtools` *(optional)* | Decompression, BAM handling | See Part A |
 
 We’ll work with **SRR2584403** (E. coli LTEE) because it’s tiny and quick. Adapt the run ID for your own data.
 
