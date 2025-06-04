@@ -62,7 +62,7 @@ You may attempt to download the data in the `Original format`, at location:
 
 by typing:
 
-    aws s3 cp s3://sra-pub-src-8/SRR2584403/Ara-1_500gen_762B_R1.fastq.gz .
+    aws s3 cp s3://sra-pub-src-8/SRR2584403/Ara-1_500gen_762B_R1.fastq.gz . --no-sign-request
 
 Although this is a S3 URL, try to download it, you'll likely get an error 403: Forbidden. Turns out the way to access this data is through `Cloud Data Delivery` which requires NCBI to retrieve it from cold storage, so it is not immediate.
 
