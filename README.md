@@ -8,7 +8,7 @@ This is a practical session where participants will perform themselves sequencin
 
 [Part C: Assembly Graph Exploration](https://github.com/rchikhi/2025-logan-practical/blob/main/PartC.md)
 
-This is a heavily guided introduction, with all the steps shown with screenshots. Please go slowly and take the time to read everything. The screenshots are accurate as of September 2025, but some interfaces may change over time. Feel free to ask questions during the session if something is unclear!
+This is a heavily guided introduction, with all the steps shown with screenshots. Please go slowly and take the time to read everything. The screenshots are accurate as of June 2025, but some interfaces may change over time. Feel free to ask questions during the session if something is unclear!
 
 To get started, go to [Part A](https://github.com/rchikhi/2025-logan-practical/blob/main/PartA.md).
 
