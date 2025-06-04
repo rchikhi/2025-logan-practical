@@ -49,6 +49,8 @@ TATGTCCTGTAACCATGAATTAAACTGCACCATATGATTGACTGATGCGGATGAACAGTATTGATCAAGTCCAGCTACAA
 4. *(Optional)* adjust the sidebar settings (see table below).  
 5. Hit **Submit**. Wait about 5 minutes.
 
+Pro tip: search `All no viral` instead of `all` groups for faster search. (Because search scales with number of SRA runs, and there are a lot of Covid19 runs.)
+
 ### Sidebar settings
 
 | Setting | What it does |
