@@ -34,7 +34,7 @@ You may see some more information about the run (SRR2584403) by clicking on it. 
 
 ![image](https://github.com/user-attachments/assets/d9e6c218-cb9b-4cf3-88e7-dc39a7f83cff)
 
-Now, how to download a FASTQ file? It is not immediate. One way to get a FASTQ file is to first get a SRA file and then convert that SRA file to FASTQ.
+Now, how to download a FASTQ file using the command line? It is not immediate. One way to get a FASTQ file is to first get a SRA file and then convert that SRA file to FASTQ.
 
 There is an easier way, but for now we will go this route, because it will teach us important things about how to get data from the cloud.
 
