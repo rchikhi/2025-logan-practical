@@ -2,7 +2,7 @@
 
 > “Query the planet in minutes.”  
 
-Logan Search lets you search up to **1 kb** of DNA/RNA and instantly identifies every public *Sequence Read Archive* (SRA) dataset that is likely to contain it. It does so by finding shared k-mers between the query sequence and each SRA accession. It’s built on a petabyte-scale Bloom filter index covering >27 million runs assembled by **Logan**.
+Logan Search lets you search up to **1 kb** of DNA/RNA and instantly identifies every public *Sequence Read Archive* (SRA) dataset that is likely to contain it. It does so by finding shared k-mers between the query sequence and each SRA accession. It’s built on a large search engine (Bloom filter) that takes a petabyte of space, indexing >27 million SRA accessions assembled by **Logan**.
 
 ---
 
@@ -17,11 +17,15 @@ Logan Search lets you search up to **1 kb** of DNA/RNA and instantly identifies 
 ---
 
 
-## 1 . Prepare a Query Sequence
+## 1 . Have or prepare a Query Sequence
 
 * **Limit:** ≤ 1 000 bp (service cap)  
 * **Formats:** FASTA
 * **Tip:** pick a region *specific* to your organism/gene—avoid conserved rRNA or adapters.
+
+If you already have a query sequence, skip this section.
+
+Otherwise here, for example, we will create one:
 
 ```bash
 # Example: extract 800 bp from the E.coli assembly from PartA
