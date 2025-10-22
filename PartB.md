@@ -145,6 +145,8 @@ cut -f1 <queryname>.tsv | tail -n +2 > hits.acc   # skip header
 
 ## 6 . Download Assemblies for the Hits
 
+You may download all Logan contigs that contain a hit to your sequence (see previous section on how to make `hits.acc` file).
+
 ```bash
 # Fetch the top 25 hits using 4 parallel threads
 head -n 25 hits.acc | parallel -j4 '
@@ -162,8 +164,7 @@ You now have contigs ready for alignment, variant calling, or pangenome analysis
 
 | Symptom | Likely cause | Fix |
 |---------|--------------|-----|
-| “Too many concurrent queries” | High server load | Wait a few minutes, then resubmit. |
-| Empty result set | Sequence too short or repetitive | Lengthen the query or choose a unique region. |
+| Empty result set | Sequence too short or not found anywhere | Lengthen the query. |
 | No e‑mail received | Spam filter or typo | Check spam; resubmit with correct address. |
 | “Top 20 k cutoff” notice | Query matched *too many* datasets | Raise **Minimum coverage** or pick a more specific sequence. |
 
