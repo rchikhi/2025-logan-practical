@@ -57,7 +57,7 @@ Pro tip: search `All no viral` instead of `all` groups for faster search. (Becau
 
 | Setting | What it does |
 |---------|--------------|
-| **Groups** | Search a subset of SRA (*Genomic*, *Single‑cell*, etc). By default, use *all* |
+| **Groups** | Search a subset of SRA (*Genomic*, *Single‑cell*, etc). By default, use *all* or *All no viral* |
 | **Minimum coverage** | Fraction of 31‑mers that must match (default = 0.5). Raising it reduces sensitivity but increases specificity. |
 | **Email** | Necessary, and results links are sent there. |
 
