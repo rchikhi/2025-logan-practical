@@ -145,7 +145,7 @@ cut -f1 <queryname>.tsv | tail -n +2 > hits.acc   # skip header
 
 ## 6 . Download Assemblies for the Hits
 
-You may download all Logan contigs that contain a hit to your sequence (see previous section on how to make `hits.acc` file).
+You may download some, or all Logan assemblies that contain a hit to your sequence (see previous section on how to make `hits.acc` file).
 
 ```bash
 # Fetch the top 25 hits using 4 parallel threads
