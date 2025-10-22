@@ -110,7 +110,7 @@ To see many other plot templates, i.e. for sequencing centers, tissues.
 
 ## 4. Get a BLAST-like alignment
 
-Logan Search main results table does not return alignments, instead, it just returns "coverage" of each accession for your query sequence. Think of it as "how likely is the sequence present in that accession", or, "how similar is the query sequence to the sequence present in the accession", although both statements are not strictly true.
+Logan Search main results table does not return alignments, instead, it just returns "coverage" of each accession for your query sequence. Think of it as "how likely is the sequence present in that accession", or, "how roughly similar is the query sequence to the sequence present in the accession".
 
 You may verify that the sequence is indeed present by manually asking Logan Search to run an alignment of the query sequence to the unitigs or contigs of a particular accession. To do this, click on the "BLAST-like alignment" tab:
 
