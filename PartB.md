@@ -25,16 +25,14 @@ Logan Search lets you search up to **1 kb** of DNA/RNA and instantly identifies 
 
 If you already have a query sequence, skip this section.
 
-Otherwise here, for example, we will create one:
+Otherwise here, for example, one can get a query sequence by extracting a part of an assembled genome (here, E. coli):
 
 ```bash
 # Example: extract 800 bp from the E.coli assembly from PartA
 seqkit subseq -r 1001:1800 SRR2584403.contigs.fa --quiet | seqkit seq -m 800 -w 0  | head -n 2 > query.fa
 ```
 
-Trivia: what does the command above really do?
-
-But actually, let us not query that particular sequence, because E. coli is everywhere, there will be too many hits and Logan Search takes more time.
+But actually, let us not query that particular sequence, because E. coli is everywhere, there will be too many hits (more than the 20,000 hits limit of Logan Search).
 
 Let us instead query this mysterious sequence:
 
