@@ -166,7 +166,7 @@ You now have contigs ready for alignment, variant calling, or pangenome analysis
 |---------|--------------|-----|
 | Empty result set | Sequence too short or not found anywhere | Lengthen the query. |
 | No e‑mail received | Spam filter or typo | Check spam; resubmit with correct address. |
-| “Top 20 k cutoff” notice | Query matched *too many* datasets | Raise **Minimum coverage** or pick a more specific sequence. |
+| Only 20 k hits | Query matched *too many* datasets | Raise **Minimum coverage** or pick a more specific sequence. |
 
 ---
 
