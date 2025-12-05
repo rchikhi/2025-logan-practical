@@ -1,4 +1,4 @@
-# Part B — Using **Logan Search** to Locate Sequences Across the SRA
+# Part B — Using **Logan Search** to locate sequences across the SRA
 
 > “Query the planet in minutes.”  
 
@@ -17,7 +17,7 @@ Logan Search lets you search up to **1 kb** of DNA/RNA and instantly identifies 
 ---
 
 
-## 1 . Have or prepare a Query Sequence
+## 1 . Have or prepare a query sequence
 
 * **Limit:** ≤ 1 000 bp (service cap)  
 * **Formats:** FASTA
@@ -43,7 +43,7 @@ TATGTCCTGTAACCATGAATTAAACTGCACCATATGATTGACTGATGCGGATGAACAGTATTGATCAAGTCCAGCTACAA
 
 ---
 
-## 2 . Open the Interface
+## 2 . Open the interface
 
 1. Navigate to **<https://logan-search.org>**.  
 2. Click **“Query the planet”** (upper‑right).  
@@ -68,7 +68,7 @@ Pro tip: search `All no viral` instead of `all` groups for faster search. (Becau
 
 ---
 
-## 3 . Look At The Results
+## 3 . Look at the results
 
 Once Logan Search has finished searching (takes about 5 minutes), browse through the results webpage, and take a look at the map and plots!
 
@@ -126,7 +126,7 @@ Then select accession `SRR12518690`, select contigs, and press search.
 
 In some cases we're not so lucky to have the whole query sequence present in a single contig. Try for example to align to `SRR26176344`, *unitigs* this time.
 
-## 5 . Retrieve Your Results
+## 5 . Retrieve your results
 
 The confirmation e‑mail contains **two links**:
 
@@ -143,7 +143,7 @@ cut -f1 <queryname>.tsv | tail -n +2 > hits.acc   # skip header
 
 ---
 
-## 6 . Download Assemblies for the Hits
+## 6 . Download assemblies for the hits
 
 You may download some, or all Logan assemblies that contain a hit to your sequence (see previous section on how to make `hits.acc` file).
 
@@ -179,10 +179,10 @@ You now have contigs ready for alignment, variant calling, or pangenome analysis
 
 ---
 
-### 🏁 Quick Recap
+### 🏁 Recap
 
-1. Craft ≤ 1 kb sequence.  
-2. Submit on Logan Search, tweak filters, add your e‑mail.  
+1. Craft a ≤ 1 kb query sequence.  
+2. Submit on Logan Search, optionally tweak filters, add your e‑mail.  
 3. Explore *kmviz*, download the ZIP.  
 4. Script‑fetch assemblies, and dive into analysis.
 
